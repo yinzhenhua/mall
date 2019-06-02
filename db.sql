@@ -1,0 +1,15 @@
+CREATE DATABASE mall
+CHARACTER SET utf8
+COLLATE utf8_general_ci;
+USE mall;
+CREATE TABLE mall.registinfoes (
+  Id INT(11) NOT NULL AUTO_INCREMENT,
+  Cell_No CHAR(11) NOT NULL,
+  Valid_code CHAR(6) DEFAULT NULL,
+  Regist_Time DATETIME DEFAULT NULL,
+  PRIMARY KEY (Id)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8,
+COLLATE utf8_general_ci;
+COMMIT ;

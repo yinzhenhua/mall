@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+<h3>
+    请输入您的手机号
+</h3>
+<form action="" method="get">
+    <div>
+        <input type="text" name="cell_no" id="cell_no"/>
+    </div>
+    <h3>
+        验证码
+    </h3>
+    <div>
+        <input type="text" name="validation_code"/>
+        <input type="button" name="btn_get_validation_code" id="get_validation_code" value="获取验证码"/>
+    </div>
+    <input type="submit" value="提交注册信息"/>
+</form>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#get_validation_code').click(function(){
+            var cell_no = $('#cell_no').val();
+           $.getJSON("/signup/"+cell_no, function(data){
+               alert(data);
+           })
+        });
+    });
+</script>
+</html>
