@@ -27,7 +27,7 @@
     $(document).ready(function(){
         $('#get_validation_code').click(function(){
             var cell_no = $('#cell_no').val();
-           $.getJSON("/signup/"+cell_no, function(data){
+           $.getJSON("signup/"+cell_no, function(data){
                alert(data);
            })
         });

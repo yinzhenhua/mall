@@ -15,10 +15,12 @@ def send_code_by_message(cell_no, validation_code):
         "tpl_value": "#code#=%s" % validation_code,  # 您设置的模板变量，根据实际情况修改
         "key": "62f148ec799f313ae5a04b18ecd85e24",  # 应用APPKEY(应用详细页查询)
     }
-    #http = urllib3.poolmanager()
-    params = urlencode(params)
-    f = urllib3.urlopen(url, params)
-    content = f.read()
+    http = urllib3.PoolManager()
+    #params = urlencode(params)
+    f = http.request("GET", url,
+                     fields=params)
+    content = f.data.decode()
+    print(content)
     res = json.loads(content)
     if res and res["error_code"] == 0:
         return 1
